@@ -12,8 +12,13 @@ test("Testeo la clase Product", (t) => {
 test("Testeo la clase User y sus métodos", (t) => {
   const product = new Product("Nuevo producto", 1500);
    const user = new User('Joaquin');
+
+   t.is(user.name, 'Joaquin');
+   t.deepEqual(user.products, []);
+
    user.addProduct(product);
 
+   t.is(user.products.length, 1);
    t.is(user.name, 'Joaquin');
    t.is(user.products[0].name, 'Nuevo producto');
    t.is(user.products[0].price, 1500);
